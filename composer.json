@@ -1,0 +1,16 @@
+{
+    "name": "henry/php-mvc-framework",
+    "description": "Custom made PHP-MVC framework",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "henry-jacq",
+            "email": "henryeditz267@gmail.com"
+        }
+    ],
+    "require": {}
+}
