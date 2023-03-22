@@ -38,32 +38,27 @@ class Router
 
         $callback = $this->routes[$method][$path] ?? false;
 
-        echo '<pre>';
-        var_dump($this->routes[$method][$path]);
-        echo '</pre>';
-        // exit;
-        
         if ($callback === false) {
             $this->response->setStatusCode(404);
-            return "Not found";
+            return $this->renderContent("Not found");
         }
 
         if (is_string($callback)) {
             return $this->renderView($callback);
         }
-        // return call_user_func($callback);
+        return call_user_func($callback);
     }
 
     public function renderView($view)
     {
         $layoutContent = $this->layoutContent();
         $viewContent = $this->renderOnlyView($view);
-        return str_replace('{{pageName}}', $viewContent, $layoutContent);    
+        return str_replace('{{content}}', $viewContent, $layoutContent);    
     }
     public function renderContent($viewContent)
     {
         $layoutContent = $this->layoutContent();
-        return str_replace('{{pageName}}', $viewContent, $layoutContent);
+        return str_replace('{{content}}', $viewContent, $layoutContent);
     }
     protected function layoutContent()
     {
