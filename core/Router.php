@@ -60,7 +60,11 @@ class Router
         $viewContent = $this->renderOnlyView($view);
         return str_replace('{{pageName}}', $viewContent, $layoutContent);    
     }
-    
+    public function renderContent($viewContent)
+    {
+        $layoutContent = $this->layoutContent();
+        return str_replace('{{pageName}}', $viewContent, $layoutContent);
+    }
     protected function layoutContent()
     {
         ob_start();
