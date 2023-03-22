@@ -1,7 +1,7 @@
 
 <div class="container my-3">
     <div class="d-flex justify-content-center align-items-center">
-        <form class="form-control p-3 w-50">
+        <form class="form-control p-3 w-50" action="" method="post">
             <label class="fs-5 mb-0">Contact Form</label>
             <hr class="mb-5">
             <div class="mb-3">
