@@ -10,19 +10,26 @@
 namespace app\controllers;
 
 use app\core\Application;
+use app\core\Controller;
+use app\core\Request;
 
-class SiteController
+class SiteController extends Controller
 {
     public function home()
     {
-        return Application::$app->router->renderView('home');
+        $params = [
+            'name' => "Henry"
+        ];
+        return $this->render('home', $params);
     }
     public function contact()
     {
         return Application::$app->router->renderView('contact');
     }
-    public function handleContact()
+    public function handleContact(Request $request)
     {
+        $body = $request->getBody();
+        
         return "Handling Contact Data";
     }
 }
